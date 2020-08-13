@@ -20,7 +20,6 @@ namespace ChessGame
                     {
                         Console.Write(board.piece(i, j) + " ");
                     }
-
                 }
                 Console.WriteLine();
             }

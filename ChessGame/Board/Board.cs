@@ -1,8 +1,10 @@
-﻿namespace ChessGame.board
+﻿using System.Drawing;
+
+namespace ChessGame.board
 {
     class Board
     {
-        public int  Lines { get; set; }
+        public int Lines { get; set; }
         public int Columns { get; set; }
 
         private Piece[,] pieces;
@@ -17,6 +19,12 @@
         public Piece piece(int line, int column)
         {
             return pieces[line, column];
+        }
+
+        public void PutPiece(Piece piece, Position position)
+        {
+            pieces[position.Line, position.Column] = piece;
+            piece.Position = position;
         }
     }
 }
