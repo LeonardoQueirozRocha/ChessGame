@@ -8,6 +8,10 @@ namespace ChessGame
         static void Main(string[] args)
         {
             Board board = new Board(8, 8);
+
+            Screen.PrintTray(board);
+
+
             Console.ReadLine();
         }
     }
