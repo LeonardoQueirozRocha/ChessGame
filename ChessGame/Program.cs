@@ -10,21 +10,11 @@ namespace ChessGame
     {
         static void Main(string[] args)
         {
-            try
-            {
-                Board board = new Board(8, 8);
+            ChessPosition chessPosition = new ChessPosition('c', 7);
+            Console.WriteLine(chessPosition);
 
-                board.PutPiece(new Tower(board, Color.Black), new Position(0, 0));
-                board.PutPiece(new Tower(board, Color.Black), new Position(1, 9));
-                board.PutPiece(new King(board, Color.Black), new Position(0, 2));
+            Console.WriteLine(chessPosition.ToPosition());
 
-                Screen.PrintTray(board);
-            }
-            catch (BoardException error)
-            {
-                Console.WriteLine(error.Message);
-            }
-            Console.ReadLine();
         }
     }
 }
