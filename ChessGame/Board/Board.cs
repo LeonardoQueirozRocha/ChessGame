@@ -40,6 +40,19 @@ namespace ChessGame.board
             piece.Position = position;
         }
 
+        public Piece WithdrawPiece(Position position)
+        {
+            if (piece(position) == null)
+            {
+                return null;
+            }
+
+            Piece aux = piece(position);
+            aux.Position = null;
+            pieces[position.Line, position.Column] = null;
+            return aux;
+        }
+
         public bool ValidPosition(Position position)
         {
             if (position.Line < 0 || position.Line >= Lines || position.Column < 0 || position.Column >= Columns)

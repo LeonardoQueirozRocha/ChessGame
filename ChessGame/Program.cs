@@ -12,17 +12,23 @@ namespace ChessGame
         {
             try
             {
-                Board board = new Board(8, 8);
+                ChessMatch chessMatch = new ChessMatch();
 
-                board.PutPiece(new Tower(board, Color.Black), new Position(0, 0));
-                board.PutPiece(new Tower(board, Color.Black), new Position(1, 3));
-                board.PutPiece(new King(board, Color.Black), new Position(0, 2));
+                while (!chessMatch.finished)
+                {
+                    Console.Clear();
+                    Screen.PrintTray(chessMatch.Board);
 
-                board.PutPiece(new Tower(board, Color.White), new Position(3, 5));
+                    Console.Write("\nOrigin: ");
+                    Position origin = Screen.ReadChessPosition().ToPosition();
 
+                    Console.Write("Destiny: ");
+                    Position destiny = Screen.ReadChessPosition().ToPosition();
 
+                    chessMatch.ExecuteMoviment(origin, destiny);
+                }
 
-                Screen.PrintTray(board);
+                Screen.PrintTray(chessMatch.Board);
             }
             catch (BoardException error)
             {
