@@ -3,7 +3,7 @@ using System.Dynamic;
 
 namespace ChessGame.board
 {
-    class Piece
+    abstract class Piece
     {
         public Position Position { get; set; }
         public Color Color { get; protected set; }
@@ -17,6 +17,8 @@ namespace ChessGame.board
             Board = board;
             MovementsQuantity = 0;
         }
+
+        public abstract bool[,] PossibleMovements();
 
         public void IncrementQuantityMovements()
         {

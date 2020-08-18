@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Reflection.PortableExecutable;
+using System.Text.RegularExpressions;
 using ChessGame.board;
 using ChessGame.chess;
 using Microsoft.VisualBasic;
@@ -19,9 +20,16 @@ namespace ChessGame
                     Console.Clear();
                     Screen.PrintTray(chessMatch.Board);
 
+                    Console.WriteLine();
                     Console.Write("\nOrigin: ");
                     Position origin = Screen.ReadChessPosition().ToPosition();
 
+                    bool[,] possiblePositions = chessMatch.Board.piece(origin).PossibleMovements();
+
+                    Console.Clear();
+                    Screen.PrintTray(chessMatch.Board, possiblePositions);
+
+                    Console.WriteLine();
                     Console.Write("Destiny: ");
                     Position destiny = Screen.ReadChessPosition().ToPosition();
 
